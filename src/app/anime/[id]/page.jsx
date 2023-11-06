@@ -12,7 +12,7 @@ const page = async ({ params: { id } }) => {
           {anime.data.title} - {anime.data.year}
         </h3>
       </div>
-      <div className="pt-4 px-4 flex gap-2 text-color-primary">
+      <div className="pt-4 px-4 flex gap-2 text-color-primary overflow-x-auto">
         <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
           <h3 className="font-bold">Peringkat</h3>
           <p className="text-center">#{anime.data.rank}</p>
@@ -20,6 +20,14 @@ const page = async ({ params: { id } }) => {
         <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
           <h3 className="font-bold">Score</h3>
           <p className="text-center">{anime.data.score}</p>
+        </div>
+        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+          <h3 className="font-bold">Episode</h3>
+          <p className="text-center">{anime.data.episodes}</p>
+        </div>
+        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
+          <h3 className="font-bold">Status</h3>
+          <p className="text-center">{anime.data.status}</p>
         </div>
         <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
           <h3 className="font-bold">Episode</h3>
