@@ -1,7 +1,7 @@
 "use client"
 import AnimeList from "@/components/AnimeList"
 import React, { useEffect, useState } from "react"
-import getAnimeResponse from "@/libs/api-libs"
+import { getAnimeResponse } from "@/libs/api-libs"
 import HeaderMenu from "@/components/Utilities/HeaderMenu"
 import Pagination from "@/components/Utilities/Pagination"
 

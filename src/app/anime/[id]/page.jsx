@@ -1,4 +1,4 @@
-import getAnimeResponse from "@/libs/api-libs"
+import { getAnimeResponse } from "@/libs/api-libs"
 import VideoPlayer from "@/components/Utilities/VideoPlayer"
 import Image from "next/image"
 import React from "react"
@@ -20,14 +20,6 @@ const page = async ({ params: { id } }) => {
         <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
           <h3 className="font-bold">Score</h3>
           <p className="text-center">{anime.data.score}</p>
-        </div>
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
-          <h3 className="font-bold">Episode</h3>
-          <p className="text-center">{anime.data.episodes}</p>
-        </div>
-        <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
-          <h3 className="font-bold">Status</h3>
-          <p className="text-center">{anime.data.status}</p>
         </div>
         <div className="w-36 flex flex-col justify-center items-center rounded border border-color-primary p-2">
           <h3 className="font-bold">Episode</h3>
