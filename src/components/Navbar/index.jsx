@@ -1,5 +1,6 @@
-import Link from "next/link";
-import InputSearch from "./InputSearch";
+import Link from "next/link"
+import InputSearch from "./InputSearch"
+import UserActionButton from "./UserActionButton"
 const Navbar = () => {
   return (
     <header className="bg-color-accent">
@@ -8,8 +9,9 @@ const Navbar = () => {
           KEANIMELIST
         </Link>
         <InputSearch />
+        <UserActionButton />
       </div>
     </header>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar

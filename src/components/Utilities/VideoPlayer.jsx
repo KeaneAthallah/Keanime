@@ -46,3 +46,5 @@ const VideoPlayer = ({ youtubeId }) => {
 }
 
 export default VideoPlayer
+
+// Perubahan untuk mengaganti video player menjadi dibawah gambar

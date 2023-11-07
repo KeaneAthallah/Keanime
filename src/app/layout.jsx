@@ -1,12 +1,9 @@
-import { Roboto } from "next/font/google"
+import { Inter } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/Utilities/Navbar"
+import Navbar from "../components/Navbar"
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  style: ["normal"],
-  display: "swap",
 })
 
 export const metadata = {
@@ -17,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-color-dark`}>
+      <body className={`${inter.className} bg-color-dark`}>
         <Navbar />
         {children}
       </body>
