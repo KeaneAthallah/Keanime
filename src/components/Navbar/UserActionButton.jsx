@@ -1,15 +1,15 @@
 import Link from "next/link"
-import { getServerSession } from "next-auth"
-import { authOption } from "../../app/api/auth/[...nextauth]/route"
-
+import { authUserSession } from "@/libs/auth-list"
 const UserActionButton = async () => {
-  const user = await getServerSession(authOption)
+  const user = await authUserSession()
+  const actionLabel = user ? "Sign Out" : "Sign In"
+  const actionURL = user ? "/api/auth/signout" : "/api/auth/signin"
   return (
     <>
       <Link
-        href="/api/auth/signin"
-        className="bg-color-primary p-2 rounded text-color-dark">
-        Sign In
+        href={actionURL}
+        className="bg-color-accent p-2 rounded text-color-dark text-font-bold">
+        {actionLabel}
       </Link>
     </>
   )

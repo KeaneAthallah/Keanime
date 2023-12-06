@@ -2,6 +2,7 @@ import { getAnimeResponse } from "../../../libs/api-libs"
 import VideoPlayer from "../../../components/Utilities/VideoPlayer"
 import Image from "next/image"
 import React from "react"
+import Video from "../../../components/Utilities/Player"
 
 const page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`)
@@ -30,7 +31,7 @@ const page = async ({ params: { id } }) => {
           <p className="text-center">{anime.data.status}</p>
         </div>
       </div>
-      <div className="pt-4 px-4 flex gap-2 text-color-primary sm:flex-nowrap flex-wrap">
+      <div className="pt-4 px-4 flex gap-2 text-color-primary sm:flex-nowrap flex-wrap items-center content-center justify-center">
         <Image
           src={anime.data.images.webp.image_url}
           alt={anime.data.images.jpg.image_url}
@@ -38,10 +39,10 @@ const page = async ({ params: { id } }) => {
           height={350}
           className="w-full rounded object-cover"
         />
+        <div className="p-1">
+          <Video youtubeId={anime.data.trailer.youtube_id} />
+        </div>
         <p className="text-justify">{anime.data.synopsis}</p>
-      </div>
-      <div>
-        <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
       </div>
     </>
   )
