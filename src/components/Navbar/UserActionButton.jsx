@@ -7,15 +7,13 @@ const UserActionButton = async () => {
   return (
     <div className="flex gap-2 justify-between">
       {user ? (
-        <Link
-          href="/users/dashboard"
-          className="bg-color-primary p-2 rounded text-color-secondary py-2 px-8 ">
+        <Link href="/users/dashboard" className="py-1 text-color-dark">
           Dashboard
         </Link>
       ) : null}
       <Link
         href={actionURL}
-        className="bg-color-dark p-2 rounded text-color-accent py-2 px-8 inline-block">
+        className="bg-color-dark rounded text-color-accent py-1 px-12 inline-block">
         {actionLabel}
       </Link>
     </div>
