@@ -2,10 +2,11 @@ import { getAnimeResponse } from "@/libs/api-libs"
 import VideoPlayer from "@/components/Utilities/VideoPlayer"
 import Image from "next/image"
 import React from "react"
-import Video from "@/components/Utilities/Player"
 import CollectionButton from "@/components/AnimeList/CollectionButton"
 import { authUserSession } from "@/libs/auth-list"
 import prisma from "@/libs/prisma"
+import CommentInput from "@/components/AnimeList/CommentInput"
+import CommentBox from "@/components/AnimeList/CommentBox"
 
 const page = async ({ params: { id } }) => {
   const anime = await getAnimeResponse(`anime/${id}`)
@@ -21,7 +22,12 @@ const page = async ({ params: { id } }) => {
           {anime.data.title} - {anime.data.year}
         </h3>
         {!collection && user && (
-          <CollectionButton anime_mal_id={id} user_email={user?.email} />
+          <CollectionButton
+            anime_mal_id={id}
+            user_email={user?.email}
+            anime_image={anime.data.images.webp.image_url}
+            anime_title={anime.data.title}
+          />
         )}
       </div>
       <div className="pt-4 px-4 flex gap-2 text-color-primary overflow-x-auto">
@@ -50,10 +56,24 @@ const page = async ({ params: { id } }) => {
           height={350}
           className="w-full rounded object-cover"
         />
-        <div className="p-1">
-          <Video youtubeId={anime.data.trailer.youtube_id} />
-        </div>
         <p className="text-justify">{anime.data.synopsis}</p>
+      </div>
+      <div className="p-4">
+        <h3 className="text-color-primary text-2xl font-bold mb-2">
+          Komentar Viewer
+        </h3>
+        <CommentBox anime_mal_id={id} />
+        {user && (
+          <CommentInput
+            anime_mal_id={id}
+            anime_title={anime.data.title}
+            user_email={user?.email}
+            username={user?.name}
+          />
+        )}
+      </div>
+      <div>
+        <VideoPlayer youtubeId={anime.data.trailer.youtube_id} />
       </div>
     </>
   )

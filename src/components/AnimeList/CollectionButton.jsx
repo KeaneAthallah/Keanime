@@ -1,11 +1,21 @@
 "use client"
 import React, { useState } from "react"
 
-const CollectionButton = ({ anime_mal_id, user_email }) => {
+const CollectionButton = ({
+  anime_mal_id,
+  user_email,
+  anime_title,
+  anime_image,
+}) => {
   const [isCreated, setisCreated] = useState(false)
   const handleCollection = async (event) => {
     event.preventDefault()
-    const data = { anime_mal_id, user_email }
+    const data = {
+      anime_mal_id,
+      user_email,
+      anime_title,
+      anime_image,
+    }
     const response = await fetch("/api/v1/collection", {
       method: "POST",
       body: JSON.stringify(data),

@@ -2,13 +2,13 @@ import Image from "next/image"
 import Link from "next/link"
 import Header from "@/components/Dashboard/Header"
 import { authUserSession } from "@/libs/auth-list"
+import prisma from "@/libs/prisma"
 
 const Page = async () => {
   const user = await authUserSession()
   const collection = await prisma.collection.findMany({
     where: { user_email: user.email },
   })
-  console.log({ collection })
   return (
     <section className="mt-4 w-full px-4">
       <Header title="My Collection" />
@@ -18,9 +18,9 @@ const Page = async () => {
             <Link
               key={index}
               href={`/anime/${collect.anime_mal_id}`}
-              className="relative border-2 border-color-accent">
+              className="relative">
               <Image
-                src=""
+                src={collect.anime_image}
                 alt=""
                 width={350}
                 height={350}
@@ -28,7 +28,7 @@ const Page = async () => {
               />
               <div className="absolute flex items-center justify-center bottom-0 w-full bg-color-accent h-16">
                 <h5 className="text-xl text-center text-color-dark">
-                  {collect.anime_mal_id}
+                  {collect.anime_title}
                 </h5>
               </div>
             </Link>
