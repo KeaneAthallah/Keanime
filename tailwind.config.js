@@ -15,12 +15,18 @@ module.exports = {
     },
     colors: {
       color: {
-        primary: "#eeeeee",
-        accent: "#ffc639",
-        secondary: "#393e46",
-        dark: "#222831",
+        primary: "#F0ECE5",
+        accent: "#B6BBC4",
+        secondary: "#31304D",
+        dark: "#161A30",
+      },
+      color_white: {
+        primary: "#A25772",
+        accent: "#7C93C3",
+        secondary: "#9EB8D9",
+        dark: "#EEF5FF",
       },
     },
   },
   plugins: [],
-};
+}
